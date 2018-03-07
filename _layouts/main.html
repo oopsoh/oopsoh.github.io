@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+      </div>
+      <div class="author-name">{{site.author}}</div>
+      <p>{{site.about-author}}</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        {% if site.social-weixin %}
+          <li><a href="#" title="WX: {{site.social-weixin}}"><i class="fa fa-weixin" aria-hidden="true"></i></a></li>
+        {% else %}
+          <li><a href="#" title="WX: "><i class="fa fa-weixin" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-facebook %}
+          <li><a href="https://weibo.com/{{ site.social-weibo }}" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+        {% else %}
+          <li><a href="https://weibo.com/234859985" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-github %}
+          <li><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+        {% else %}
+          <li><a href="http://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-qq %}
+          <li><a href="#" title="QQ: {{site.social-qq}}"><i class="fa fa-qq"></i></a></li>
+        {% else %}
+          <li><a href="#" title="QQ: "><i class="fa fa-qq" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-email %}
+          <li><a href="mailto:{{site.social-email}}"><i class="fa fa-envelope-o"></i></a></li>
+        {% else %}
+          <li><a href="mailto:694081366@qq.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+        {% endif %}
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>{{site.time | date: '%Y'}} &copy; {{site.author}}</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  {{ content }}
+</div>

@@ -1,0 +1,35 @@
+title: Oopsoh,Share ideas and do things
+description: > # this means to ignore newlines until "baseurl:"
+  bigdata platform, container platform, java python go scala shell.
+permalink: ':title/'
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Author Settings
+author: Oopsoh # add your name
+author-img: oopsoh.jpg # add your photo
+about-author: 大数据平台 容器平台  # add description
+social-github: oopsoh # add your Github handle
+social-email: 694081366@qq.com # add your Email address
+
+social-weixin: cyp2928521
+social-weibo: 234859985
+social-qq: 694081366
+
+# Disqus
+discus-identifier: oopsoh # add your discus identifier
+
+# Tracker
+analytics: b84f60dc5973d28e2eb13432401ce16e # Baidu Tongji
+
+# Build Settings
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
+paginate: 5
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
