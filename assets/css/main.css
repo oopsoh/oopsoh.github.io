@@ -1250,6 +1250,7 @@ a.newer-posts:hover {
   -webkit-transition: background-color .3s;
   -o-transition: background-color .3s;
   transition: background-color .3s;
+  height: 26px;
 }
 
 .page-footer .page-share a:first-child {
@@ -1259,6 +1260,13 @@ a.newer-posts:hover {
 .page-footer .page-share a:hover {
   background-color: #ecf0f1;
 }
+
+/*-----去掉百度分享中的图标图片-------*/
+.bdshare-button-style1-16 a {
+  background-image:none!important;
+  margin: 0 0 5 0!important;
+}
+
 
 .page-footer .page-tag a {
   text-decoration: none;
