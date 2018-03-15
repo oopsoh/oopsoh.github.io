@@ -6,6 +6,7 @@ description: 在kubernetes集群中部署jupyterhub，集成openldap用户认证
 img: jupyterhub.png
 tags: [jupyterhub, kubernetes, docker]
 permalink: /2018/03/:title/
+
 ---
 
 &emsp;&emsp;jupyterhub是jupyter notebook的一个server，用户请求jupyterhub，hub给每个用户启动一个notebook，返还给用户notebook 的URL地址通过浏览器访问。网上没有相关的文档，只能参考[官网文档](https://zero-to-jupyterhub.readthedocs.io/en/latest/index.html)，所以写写我的安装过程。
@@ -15,7 +16,7 @@ permalink: /2018/03/:title/
 - kubernetes的安装见另一篇文章
 - 获取jupyterhub yaml文件
 - 集成openldap用户认证
-- 使用ingress暴露服务
+- 使用Ingress暴露服务
 - 自定义hub和notebook镜像
 
 
@@ -80,6 +81,6 @@ description: Multi-user Jupyter installation
 name: jupyterhub
 version: v0.7-e6b48f6
 ```
-&emsp;&emsp;到这里就获取到了yaml文件，剩下的就是玩这个文件了。
+&emsp;&emsp;到这里就获取到了yaml文件，剩下的就是针对values.yaml文件中的默认值，去自定义覆盖默认值。
 
 
