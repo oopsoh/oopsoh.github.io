@@ -337,7 +337,10 @@ singleuser:
   lifecycleHooks:
     postStart:
       exec:
-        command: ["/bin/bash","-c","mkdir -p .pip && echo -e '[install]\ninstall-option=--prefix=~/.local\ntrusted-host=mirrors.aliyun.com\n\n[global]\nindex-url = http://mirrors.aliyun.com/pypi/simple/\n'  > .pip/pip.conf"]
+        command: ["/bin/bash","-c", 
+         "mkdir -p .pip && echo -e '[install]\ninstall-option=--prefix=
+         ~/.local\ntrusted-host=mirrors.aliyun.com\n\n[global]\n
+         index-url = http://mirrors.aliyun.com/pypi/simple/\n'  > .pip/pip.conf"]
 ```
 
 &emsp;&emsp;在values.yaml文件中又一个prepull，是一个一次性的job任务，为了提前拉取镜像，这个在values.yaml文件中有一个pause的镜像，了解kubernetes的都知道，这个是一个pod的基础镜像，需要修改成自己镜像仓库或者可以访问到的其他源，比如阿里云的。
