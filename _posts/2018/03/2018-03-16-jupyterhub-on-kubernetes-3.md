@@ -329,9 +329,31 @@ singleuser:
       }
     ]
 ```
+#### 其他设置
+&emsp;&emsp;每个用户启动的pod都挂载了一个私有卷，个人的信息最好都保存在这个卷上，所以使用pip安装包的时候，需要指定安装位置和信任的安装源，私有卷是挂载在home目录上面，所以在docker镜像里面去做这个配置，会被覆盖掉，但是jupyterhub已经考虑到这个问题了，使用下面的lifecycleHooks。
+
+```yaml
+singleuser:
+  lifecycleHooks:
+    postStart:
+      exec:
+        command: ["/bin/bash","-c","mkdir -p .pip && echo -e '[install]\ninstall-option=--prefix=~/.local\ntrusted-host=mirrors.aliyun.com\n\n[global]\nindex-url = http://mirrors.aliyun.com/pypi/simple/\n'  > .pip/pip.conf"]
+```
+
+&emsp;&emsp;在values.yaml文件中又一个prepull，是一个一次性的job任务，为了提前拉取镜像，这个在values.yaml文件中有一个pause的镜像，了解kubernetes的都知道，这个是一个pod的基础镜像，需要修改成自己镜像仓库或者可以访问到的其他源，比如阿里云的。
+
+```yaml
+prePuller:
+  pause:
+    image:
+      name: registry.cn-hangzhou.aliyuncs.com/google_containers/pause-amd64
+      tag: '3.0'
+```
+
+#### 安装启动
 &emsp;&emsp;到此一切就准备的差不多了，下来就是使用helm工具部署到kubernetes上面。
 
-```
+```q
 helm install ./jupyterhub \
     --version=v0.7-e6b48f6 \
     --name=data8-jupyterhub \
